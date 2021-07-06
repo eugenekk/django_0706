@@ -1,0 +1,11 @@
+<!-- myprojcet/templates/layout.html 파일을 상속받아 title / content 블럭만 갈아끼운다 -->
+{% extends "layout.html" %} 
+{% block title %} 
+    <h3>{{article.title}} </h3>
+{% endblock %}
+
+{% block content %} 
+<h3>{{article.title}} </h3>
+    <h4>{{article.body}} </h4>
+{% endblock %}
+  

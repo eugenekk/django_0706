@@ -1,0 +1,23 @@
+메소드 사용법 ()제외: {{ person.say_hello }} <br />
+변수 사용법 : {{ person.name }}<br />
+인덱스 사용법 : {{ people.2 }}<br />
+랜덤문자열 : {% lorem 3 p %}<br />
+과거부터 현재까지 : {{ past_dt|timesince }} <br />
+과거부터 현재까지(기준시간) : {{ past_dt|timesince:criteria_dt}} <br />
+미래까지 남은시간: {{ future_dt|timeuntil }} <br />
+미래까지 남은시간(기준시간) : {{ future_dt|timeuntil:past_dt }}<br />
+none 처리 : {{ person_list|default:"nothing"}}<br />
+{{ person_list | default_if_none:"nothing" }}<br />
+join 사용법 : {{ people|join:" // "}}<br />
+msg 줄바꿈 : {{ msg|linebreaks }}<br />
+리스트에서 랜덤뽑기 : {{ people|random }}<br />
+저장되 원래 문자열 : {{value}} <br />
+value 값을 브라우저에서 string으로 인식(on) : {% autoescape on %} {{value}} {% endautoescape %}<br />
+value 값을 브라우저에서 string으로 인식(off) : {% autoescape off %} {{value}} {% endautoescape %}<br />
+html 태그 모두 제거 : {{ value|striptags }} <br>
+
+50글자만 보기 : {{ msg|truncatechars:50 }} <br>
+50단어만 보기 : {{ msg|truncatewords:50 }} <br>
+
+url 자동링크 : {{value4|urlize}}<br>
+이메일 자동링크 : {{value5|urlize}}

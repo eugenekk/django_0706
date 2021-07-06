@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <ul>
+        {% for book in book_list %}
+            <li>{{book.title}} / {{book.author}} / {{book.publisher}}</li>
+            <a href="{% url 'book:edit' book.id %}">수정</a>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'book:new' %}">추가</a>
+{% endblock %}
+
+

@@ -1,0 +1,12 @@
+<!-- myprojcet/templates/layout.html 파일을 상속받아 title / content 블럭만 갈아끼운다 -->
+{% extends "layout.html" %} {% block content %}
+<form action="" method="get">
+  <input type="text" name="q" value="{{q}}" />
+  <input type="submit" value="검색" />
+</form>
+
+{% for a in article_list %}
+<li>
+  <a href="{% url 'article:detail' a.id %}">{{a.title}}</a>
+</li>
+{% endfor %} {% endblock %}
