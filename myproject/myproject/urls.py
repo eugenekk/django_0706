@@ -18,6 +18,8 @@ from django.shortcuts import redirect
 from django.urls import path
 from django.urls.conf import include
 from django.conf import settings
+from django.conf.urls.static import static
+from django.conf import settings
 
 def root(request):
     return redirect('article:list')
@@ -29,7 +31,11 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('article/', include('article.urls')),
     path('book/', include('book.urls')),
+
 ]
+
+# static 처럼 자동으로 경로를 탐색하지 않아서 media 가 나오면 MEDIA_ROOT로 찾아갈 수 있게 설정해야함
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar

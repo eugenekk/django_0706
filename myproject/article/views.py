@@ -7,6 +7,7 @@ from django.urls import reverse, reverse_lazy
 
 # Create your views here.
 def article_list(request):
+    print(request.user)
     qs = Article.objects.all()
     q = request.GET.get('q') # client 가 보낸 검색창 입력값
     if q:

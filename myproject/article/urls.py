@@ -6,7 +6,10 @@ from .models import Article
 
 app_name = 'article'
 urlpatterns = [
-    path('', ListView.as_view(model=Article), name = 'list'),
+    # genericview 로 보는 법
+    # path('', ListView.as_view(model=Article), name = 'list'),
+    
+    path('', views.article_list, name = 'list'),
     path('<pk>/detail/', DetailView.as_view(model=Article), name ='detail'),
     path('new/', views.article_new, name='new'),
     path('<pk>/edit/', views.article_edit, name='edit'),

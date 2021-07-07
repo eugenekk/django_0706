@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'article.context_processors.article',
             ],
         },
     },
@@ -130,4 +131,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS=[os.path.join(BASE_DIR, 'myproject', 'static')]
 
+# 실제 서비스 배포시 설정하는 것 = 서비스할때 웹서버가 사용하는 실제 스토리지 위치
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# static 처럼 자동으로 경로를 탐색하지 않아서 media 가 나오면 MEDIA_ROOT로 찾아갈 수 있게 설정해야함 -> myproject/urls.py에 설정필요
+MEDIA_URL = '/media/'
+# 유저가 등록하는 정적 파일들(이미지 업로드 등)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# redirect(settings.LOGIN_URL)
+LOGIN_URL = '/article/'
+
+# 이메일 보내기(overwrite)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

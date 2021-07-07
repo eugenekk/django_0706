@@ -44,6 +44,7 @@ def book_edit(request, id):
             book = form.save(commit=False)
             book.ip = request.META['REMOTE_ADDR']
             book.save()
+            print(book)
             return redirect(book)
 
     else: # GET 방식으로 들어올 경우 채워진 입력폼 제공
